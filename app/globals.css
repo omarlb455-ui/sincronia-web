@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { background: #0a0a0f; color: #ededed; }
+html, body {
+  background: #fafafa;
+  color: #0a0a0f;
+}
 
 .gradient-text {
   background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);
@@ -12,8 +15,10 @@ html, body { background: #0a0a0f; color: #ededed; }
 }
 
 .gradient-bg {
-  background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 50%),
-              radial-gradient(circle at 80% 60%, rgba(6, 182, 212, 0.2), transparent 50%);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.10), transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(6, 182, 212, 0.10), transparent 50%),
+    #fafafa;
 }
 
 .glow-border {
@@ -26,6 +31,6 @@ html, body { background: #0a0a0f; color: #ededed; }
   border-radius: inherit;
   background: linear-gradient(90deg, #7c3aed, #06b6d4);
   z-index: -1;
-  opacity: 0.6;
-  filter: blur(12px);
+  opacity: 0.4;
+  filter: blur(14px);
 }

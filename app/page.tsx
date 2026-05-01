@@ -26,9 +26,9 @@ function Nav() {
         <span className="gradient-text">Sincronia</span>
       </Link>
       <div className="flex items-center gap-4 text-sm">
-        <a href="#precios" className="hidden md:block text-gray-400 hover:text-white transition">Precios</a>
-        <a href="#como-funciona" className="hidden md:block text-gray-400 hover:text-white transition">Cómo funciona</a>
-        <a href="#empezar" className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition">
+        <a href="#precios" className="hidden md:block text-gray-600 hover:text-black transition">Precios</a>
+        <a href="#como-funciona" className="hidden md:block text-gray-600 hover:text-black transition">Cómo funciona</a>
+        <a href="#empezar" className="px-4 py-2 rounded-full bg-black text-white hover:bg-gray-800 transition">
           Empezar
         </a>
       </div>
@@ -39,7 +39,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="px-6 md:px-12 pt-12 pb-16 md:pt-24 md:pb-24 max-w-6xl mx-auto text-center">
-      <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-gray-300">
+      <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-black/10 bg-white text-xs text-gray-700">
         🇲🇽 Hecho en México · Para tiendas Shopify
       </div>
       <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
@@ -47,7 +47,7 @@ function Hero() {
         <br />
         <span className="gradient-text">en sincronía</span> con tu Shopify
       </h1>
-      <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+      <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
         Un agente de IA que responde por WhatsApp, ejecuta acciones reales en tu tienda, y siempre te pide tu visto bueno antes de algo importante.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -59,7 +59,7 @@ function Hero() {
         </a>
         <a
           href="#como-funciona"
-          className="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition"
+          className="px-8 py-4 rounded-full border border-black/15 hover:bg-black/[0.04] transition"
         >
           Ver cómo funciona
         </a>
@@ -82,7 +82,7 @@ function Stats() {
         {stats.map((s) => (
           <div key={s.label} className="text-center">
             <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">{s.num}</div>
-            <div className="text-sm text-gray-400">{s.label}</div>
+            <div className="text-sm text-gray-600">{s.label}</div>
           </div>
         ))}
       </div>
@@ -97,13 +97,13 @@ function Mockup() {
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3">
           Así <span className="gradient-text">se siente</span>
         </h2>
-        <p className="text-gray-400">El agente propone, tú apruebas con un click. Listo.</p>
+        <p className="text-gray-600">El agente propone, tú apruebas con un click. Listo.</p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6 items-start">
         {/* Cliente final */}
-        <div className="p-6 rounded-3xl bg-emerald-950/30 border border-emerald-500/20">
-          <div className="text-xs uppercase tracking-wider text-emerald-400 mb-4 font-semibold">
+        <div className="p-6 rounded-3xl bg-emerald-50 border border-emerald-200">
+          <div className="text-xs uppercase tracking-wider text-emerald-700 mb-4 font-semibold">
             Chat con el cliente
           </div>
           <div className="space-y-3">
@@ -119,27 +119,27 @@ function Mockup() {
         </div>
 
         {/* Operador */}
-        <div className="p-6 rounded-3xl bg-purple-950/30 border border-purple-500/20">
-          <div className="text-xs uppercase tracking-wider text-purple-400 mb-4 font-semibold">
+        <div className="p-6 rounded-3xl bg-purple-50 border border-purple-200">
+          <div className="text-xs uppercase tracking-wider text-purple-700 mb-4 font-semibold">
             Tu WhatsApp (operador)
           </div>
           <div className="space-y-3">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-sm">
               <div className="text-xs text-gray-500 mb-1">🤖 Sincronia propone</div>
-              <div className="text-sm text-gray-300 mb-3">
+              <div className="text-sm text-gray-800 mb-3">
                 <strong>Ana</strong> pide cambio de talla M → L del pedido #4521.
               </div>
-              <div className="text-sm text-gray-400 italic mb-3">
+              <div className="text-sm text-gray-600 italic mb-3">
                 "Listo Ana, cambio aplicado ✅..."
               </div>
               <div className="flex gap-2">
-                <button className="flex-1 py-2 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-medium">
+                <button className="flex-1 py-2 rounded-lg bg-emerald-500 text-white text-xs font-medium">
                   ✅ Aprobar
                 </button>
-                <button className="flex-1 py-2 rounded-lg bg-white/5 text-gray-400 text-xs font-medium">
+                <button className="flex-1 py-2 rounded-lg bg-gray-100 text-gray-700 text-xs font-medium">
                   ✏️ Editar
                 </button>
-                <button className="flex-1 py-2 rounded-lg bg-red-500/10 text-red-400 text-xs font-medium">
+                <button className="flex-1 py-2 rounded-lg bg-red-50 text-red-600 text-xs font-medium">
                   ✕ Rechazar
                 </button>
               </div>
@@ -161,11 +161,11 @@ function Bubble({ children, side, agent }: { children: React.ReactNode; side: "l
       <div
         className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${
           isRight
-            ? "bg-emerald-500/20 text-emerald-50 rounded-br-sm"
-            : "bg-white/10 text-gray-200 rounded-bl-sm"
+            ? "bg-emerald-500 text-white rounded-br-sm"
+            : "bg-white border border-black/[0.08] text-gray-800 rounded-bl-sm shadow-sm"
         }`}
       >
-        {agent && <div className="text-[10px] text-emerald-400 mb-0.5 font-semibold">🤖 SOFÍA · TIENDA</div>}
+        {agent && <div className="text-[10px] text-emerald-100 mb-0.5 font-semibold">🤖 SOFÍA · TIENDA</div>}
         {children}
       </div>
     </div>
@@ -212,22 +212,22 @@ function Features() {
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-3 tracking-tight">
         Todo lo que necesitas, <span className="gradient-text">nada de fricción</span>
       </h2>
-      <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+      <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
         Diseñado para tiendas Shopify mexicanas que quieren escalar sin contratar más gente.
       </p>
       <div className="grid md:grid-cols-6 gap-6">
-        {items.map((it, i) => (
+        {items.map((it) => (
           <div
             key={it.title}
-            className={`group p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition ${
+            className={`group p-6 rounded-2xl border border-black/[0.08] bg-white hover:border-black/20 hover:shadow-lg transition ${
               it.featured ? "md:col-span-3" : "md:col-span-2"
             }`}
           >
-            <div className="mb-4 inline-flex p-3 rounded-xl bg-gradient-to-br from-accent/20 to-accent2/20 border border-white/10 group-hover:scale-105 transition-transform">
-              <it.Icon className="w-6 h-6 text-white" strokeWidth={1.5} />
+            <div className="mb-4 inline-flex p-3 rounded-xl bg-gradient-to-br from-accent/10 to-accent2/10 border border-black/[0.06] group-hover:scale-105 transition-transform">
+              <it.Icon className="w-6 h-6 text-gray-900" strokeWidth={1.5} />
             </div>
             <h3 className="text-xl font-semibold mb-2">{it.title}</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{it.desc}</p>
+            <p className="text-gray-600 text-sm leading-relaxed">{it.desc}</p>
           </div>
         ))}
       </div>
@@ -249,10 +249,10 @@ function HowItWorks() {
       </h2>
       <div className="grid md:grid-cols-2 gap-6">
         {steps.map((s) => (
-          <div key={s.num} className="p-8 rounded-2xl border border-white/10 bg-white/[0.02]">
+          <div key={s.num} className="p-8 rounded-2xl border border-black/[0.08] bg-white hover:shadow-lg transition">
             <div className="text-sm gradient-text font-bold mb-3">{s.num}</div>
             <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-            <p className="text-gray-400 text-sm">{s.desc}</p>
+            <p className="text-gray-600 text-sm">{s.desc}</p>
           </div>
         ))}
       </div>
@@ -266,13 +266,13 @@ function Pricing() {
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 tracking-tight">
         Un plan, <span className="gradient-text">sin sorpresas</span>
       </h2>
-      <div className="glow-border p-10 rounded-3xl border border-white/10 bg-white/[0.03] text-center">
-        <div className="text-sm text-gray-400 mb-2">Plan Sincronia</div>
+      <div className="glow-border p-10 rounded-3xl border border-black/[0.08] bg-white text-center shadow-xl">
+        <div className="text-sm text-gray-500 mb-2">Plan Sincronia</div>
         <div className="text-6xl font-bold mb-2">
-          $3,000<span className="text-2xl text-gray-400 font-normal"> MXN/mes</span>
+          $3,000<span className="text-2xl text-gray-500 font-normal"> MXN/mes</span>
         </div>
         <div className="text-gray-500 mb-8">Sin permanencia. Cancelas cuando quieras.</div>
-        <ul className="text-left space-y-3 mb-10 max-w-md mx-auto text-gray-300">
+        <ul className="text-left space-y-3 mb-10 max-w-md mx-auto text-gray-700">
           <li>✅ Agente IA con human-in-the-loop</li>
           <li>✅ Hasta 1,000 conversaciones / mes</li>
           <li>✅ Integración Shopify oficial</li>
@@ -323,13 +323,13 @@ function FAQ() {
         {items.map((it) => (
           <details
             key={it.q}
-            className="p-6 rounded-2xl border border-white/10 bg-white/[0.02] cursor-pointer group"
+            className="p-6 rounded-2xl border border-black/[0.08] bg-white cursor-pointer group hover:shadow-md transition"
           >
             <summary className="font-semibold text-lg list-none flex justify-between items-center">
               {it.q}
-              <span className="text-gray-500 group-open:rotate-45 transition-transform">+</span>
+              <span className="text-gray-400 group-open:rotate-45 transition-transform">+</span>
             </summary>
-            <p className="text-gray-400 mt-3 text-sm leading-relaxed">{it.a}</p>
+            <p className="text-gray-600 mt-3 text-sm leading-relaxed">{it.a}</p>
           </details>
         ))}
       </div>
@@ -344,68 +344,68 @@ function CTA() {
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3">
           ¿Listo para <span className="gradient-text">empezar</span>?
         </h2>
-        <p className="text-gray-400">Te contactamos en menos de 24 horas para activar tu cuenta.</p>
+        <p className="text-gray-600">Te contactamos en menos de 24 horas para activar tu cuenta.</p>
       </div>
 
       <form
         action="https://formsubmit.co/hola@sincronia.lat"
         method="POST"
-        className="space-y-4 p-8 rounded-3xl border border-white/10 bg-white/[0.03]"
+        className="space-y-4 p-8 rounded-3xl border border-black/[0.08] bg-white shadow-xl"
       >
         <input type="hidden" name="_subject" value="Nuevo lead Sincronia" />
         <input type="hidden" name="_next" value="https://sincronia.lat/?gracias=1" />
         <input type="hidden" name="_captcha" value="false" />
 
         <div>
-          <label className="block text-sm text-gray-300 mb-2">Tu nombre</label>
+          <label className="block text-sm text-gray-700 mb-2">Tu nombre</label>
           <input
             type="text"
             name="nombre"
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-white/30 focus:outline-none text-white"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-black/[0.08] focus:border-black/30 focus:bg-white focus:outline-none text-gray-900"
             placeholder="Omar Orozco"
           />
         </div>
 
         <div>
-          <label className="block text-sm text-gray-300 mb-2">Email</label>
+          <label className="block text-sm text-gray-700 mb-2">Email</label>
           <input
             type="email"
             name="email"
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-white/30 focus:outline-none text-white"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-black/[0.08] focus:border-black/30 focus:bg-white focus:outline-none text-gray-900"
             placeholder="omar@mitienda.com"
           />
         </div>
 
         <div>
-          <label className="block text-sm text-gray-300 mb-2">WhatsApp</label>
+          <label className="block text-sm text-gray-700 mb-2">WhatsApp</label>
           <input
             type="tel"
             name="whatsapp"
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-white/30 focus:outline-none text-white"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-black/[0.08] focus:border-black/30 focus:bg-white focus:outline-none text-gray-900"
             placeholder="33 1234 5678"
           />
         </div>
 
         <div>
-          <label className="block text-sm text-gray-300 mb-2">URL de tu tienda Shopify</label>
+          <label className="block text-sm text-gray-700 mb-2">URL de tu tienda Shopify</label>
           <input
             type="url"
             name="tienda"
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-white/30 focus:outline-none text-white"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-black/[0.08] focus:border-black/30 focus:bg-white focus:outline-none text-gray-900"
             placeholder="https://mitienda.mx"
           />
         </div>
 
         <div>
-          <label className="block text-sm text-gray-300 mb-2">¿Cuántos mensajes recibes al día? (aprox)</label>
+          <label className="block text-sm text-gray-700 mb-2">¿Cuántos mensajes recibes al día? (aprox)</label>
           <select
             name="volumen"
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-white/30 focus:outline-none text-white"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-black/[0.08] focus:border-black/30 focus:bg-white focus:outline-none text-gray-900"
           >
             <option value="">Elige una opción</option>
             <option value="<20">Menos de 20</option>
@@ -448,15 +448,15 @@ function FloatingWhatsApp() {
 
 function Footer() {
   return (
-    <footer className="px-6 md:px-12 py-12 border-t border-white/10 mt-12">
+    <footer className="px-6 md:px-12 py-12 border-t border-black/[0.08] mt-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
         <div>
           <span className="gradient-text font-bold">Sincronia</span> · Hecho en México 🇲🇽
         </div>
         <div className="flex gap-6">
-          <Link href="/privacidad" className="hover:text-white transition">Privacidad</Link>
-          <Link href="/terminos" className="hover:text-white transition">Términos</Link>
-          <a href="mailto:hola@sincronia.lat" className="hover:text-white transition">Contacto</a>
+          <Link href="/privacidad" className="hover:text-black transition">Privacidad</Link>
+          <Link href="/terminos" className="hover:text-black transition">Términos</Link>
+          <a href="mailto:hola@sincronia.lat" className="hover:text-black transition">Contacto</a>
         </div>
       </div>
     </footer>
