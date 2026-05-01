@@ -576,13 +576,16 @@ function FloatingWhatsApp() {
 function Footer() {
   return (
     <footer className="px-6 md:px-12 py-12 border-t border-black/[0.08] mt-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-6 text-sm text-gray-500">
         <div>
           <span className="gradient-text font-bold">Sincronia</span> · Hecho en México 🇲🇽
         </div>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/privacidad" className="hover:text-black transition">Privacidad</Link>
           <Link href="/terminos" className="hover:text-black transition">Términos</Link>
+          <Link href="/cookies" className="hover:text-black transition">Cookies</Link>
+          <Link href="/subprocesadores" className="hover:text-black transition">Subprocesadores</Link>
+          <Link href="/ia" className="hover:text-black transition">Uso de IA</Link>
           <a href="mailto:hola@sincronia.lat" className="hover:text-black transition">Contacto</a>
         </div>
       </div>
