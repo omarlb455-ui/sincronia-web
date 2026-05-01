@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Handshake, ShoppingBag, Smartphone, Sparkles, BookOpenText, BarChart3 } from "lucide-react";
 
 export default function Home() {
   return (
@@ -174,48 +175,57 @@ function Bubble({ children, side, agent }: { children: React.ReactNode; side: "l
 function Features() {
   const items = [
     {
-      icon: "🤝",
+      Icon: Handshake,
       title: "Tú decides, la IA propone",
       desc: "El agente sugiere respuestas y acciones en tu WhatsApp. Tú apruebas, editas o rechazas con un click.",
+      featured: true,
     },
     {
-      icon: "🛒",
+      Icon: ShoppingBag,
       title: "Conectado a tu Shopify",
       desc: "Cambia tallas, corrige direcciones, busca pedidos. No solo platica — actúa en tu tienda.",
+      featured: true,
     },
     {
-      icon: "📱",
+      Icon: Smartphone,
       title: "Tu WhatsApp sigue siendo tuyo",
       desc: "Coexistencia oficial de Meta. Tu app del celular sigue funcionando normal. Cero riesgo de baneo.",
     },
     {
-      icon: "🇲🇽",
+      Icon: Sparkles,
       title: "Habla como mexicano",
       desc: "Tono cálido, modismos, paqueterías locales. No es un bot gringo traducido.",
     },
     {
-      icon: "🧠",
+      Icon: BookOpenText,
       title: "Aprende tu negocio",
       desc: "Configura tus políticas de cambio, devolución y envío. El agente las respeta al pie de la letra.",
     },
     {
-      icon: "📊",
+      Icon: BarChart3,
       title: "Métricas claras",
       desc: "Mira cuántos mensajes respondió, qué propuso, cuánto tiempo ahorraste. Datos sin humo.",
     },
   ];
   return (
     <section className="px-6 md:px-12 py-20 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 tracking-tight">
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-3 tracking-tight">
         Todo lo que necesitas, <span className="gradient-text">nada de fricción</span>
       </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((it) => (
+      <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+        Diseñado para tiendas Shopify mexicanas que quieren escalar sin contratar más gente.
+      </p>
+      <div className="grid md:grid-cols-6 gap-6">
+        {items.map((it, i) => (
           <div
             key={it.title}
-            className="p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition"
+            className={`group p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition ${
+              it.featured ? "md:col-span-3" : "md:col-span-2"
+            }`}
           >
-            <div className="text-3xl mb-3">{it.icon}</div>
+            <div className="mb-4 inline-flex p-3 rounded-xl bg-gradient-to-br from-accent/20 to-accent2/20 border border-white/10 group-hover:scale-105 transition-transform">
+              <it.Icon className="w-6 h-6 text-white" strokeWidth={1.5} />
+            </div>
             <h3 className="text-xl font-semibold mb-2">{it.title}</h3>
             <p className="text-gray-400 text-sm leading-relaxed">{it.desc}</p>
           </div>
