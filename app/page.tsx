@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Handshake, ShoppingBag, Smartphone, Sparkles, BookOpenText, BarChart3 } from "lucide-react";
+import { Handshake, ShoppingBag, Smartphone, Sparkles, BookOpenText, BarChart3, Check, Package, Truck, MapPin } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="min-h-screen gradient-bg">
       <Nav />
       <Hero />
-      <Stats />
-      <Mockup />
+      <Integrations />
+      <NumberedSections />
       <Features />
       <HowItWorks />
       <Pricing />
@@ -69,20 +69,32 @@ function Hero() {
   );
 }
 
-function Stats() {
-  const stats = [
-    { num: "8h", label: "Ahorradas a la semana en customer service" },
-    { num: "2 min", label: "Tiempo promedio de respuesta vs 4 horas manual" },
-    { num: "94%", label: "De propuestas aprobadas sin edición" },
-    { num: "$0", label: "De costo extra de Meta en mensajes service" },
+function Integrations() {
+  const logos = [
+    { name: "Shopify", slug: "shopify", color: "95BF47" },
+    { name: "WhatsApp", slug: "whatsapp", color: "25D366" },
+    { name: "Stripe", slug: "stripe", color: "635BFF" },
+    { name: "Mercado Pago", slug: "mercadopago", color: "00B1EA" },
+    { name: "Meta", slug: "meta", color: "0866FF" },
+    { name: "Anthropic", slug: "anthropic", color: "191919" },
   ];
   return (
     <section className="px-6 md:px-12 py-12 max-w-6xl mx-auto">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {stats.map((s) => (
-          <div key={s.label} className="text-center">
-            <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">{s.num}</div>
-            <div className="text-sm text-gray-600">{s.label}</div>
+      <div className="text-center text-xs uppercase tracking-widest text-gray-500 font-semibold mb-8">
+        Se integra con las herramientas que ya usas
+      </div>
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
+        {logos.map((l) => (
+          <div
+            key={l.name}
+            className="flex items-center gap-2.5 grayscale hover:grayscale-0 transition opacity-60 hover:opacity-100"
+          >
+            <img
+              src={`https://cdn.simpleicons.org/${l.slug}/${l.color}`}
+              alt={l.name}
+              className="w-7 h-7"
+            />
+            <span className="text-base md:text-lg font-semibold text-gray-700">{l.name}</span>
           </div>
         ))}
       </div>
@@ -90,67 +102,183 @@ function Stats() {
   );
 }
 
-function Mockup() {
+function NumberedSections() {
   return (
-    <section className="px-6 md:px-12 py-16 max-w-5xl mx-auto">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3">
-          Así <span className="gradient-text">se siente</span>
-        </h2>
-        <p className="text-gray-600">El agente propone, tú apruebas con un click. Listo.</p>
-      </div>
+    <section className="px-6 md:px-12 py-16 max-w-7xl mx-auto space-y-32 md:space-y-40">
+      <SectionBlock
+        num="01"
+        eyebrow="Bandeja con IA"
+        title={<>Tus mensajes, <span className="gradient-text">contestados solos</span></>}
+        desc="Sofía lee cada mensaje que entra a tu WhatsApp Business, entiende qué pide el cliente y redacta la respuesta perfecta — con tu tono, tus políticas, tus tiempos de envío."
+        bullets={[
+          "Entiende cambios, devoluciones, status de pedido, dudas de talla",
+          "Responde 24/7 incluso fuera de horario",
+          "Aprende tu negocio con cada conversación",
+        ]}
+        side="right"
+      >
+        <BandejaMockup />
+      </SectionBlock>
 
-      <div className="grid md:grid-cols-2 gap-6 items-start">
-        {/* Cliente final */}
-        <div className="p-6 rounded-3xl bg-emerald-50 border border-emerald-200">
-          <div className="text-xs uppercase tracking-wider text-emerald-700 mb-4 font-semibold">
-            Chat con el cliente
-          </div>
-          <div className="space-y-3">
-            <Bubble side="left">Hola! Necesito cambiar la talla de mi pedido #4521 de M a L 🙏</Bubble>
-            <Bubble side="right" agent>
-              ¡Hola Ana! 🙌 Claro, ya vi tu pedido. Te confirmo en un momento el cambio de M a L de tus tenis blancos.
-            </Bubble>
-            <Bubble side="right" agent>
-              Listo Ana, cambio aplicado ✅ Tu pedido #4521 ahora está en talla L. Te llega el viernes 📦
-            </Bubble>
-            <Bubble side="left">Perfecto, mil gracias!</Bubble>
-          </div>
-        </div>
+      <SectionBlock
+        num="02"
+        eyebrow="Aprobación humana"
+        title={<>Tú das el <span className="gradient-text">visto bueno</span></>}
+        desc="Antes de mandar algo importante, Sofía te pregunta. Apruebas, editas o rechazas con un solo tap desde tu propio WhatsApp. Sin apps nuevas, sin dashboards."
+        bullets={[
+          "Cada acción transaccional pasa por ti",
+          "Edita la propuesta si quieres ajustar el tono",
+          "Cuando confíes, le sueltas más libertad",
+        ]}
+        side="left"
+      >
+        <AprobacionMockup />
+      </SectionBlock>
 
-        {/* Operador */}
-        <div className="p-6 rounded-3xl bg-purple-50 border border-purple-200">
-          <div className="text-xs uppercase tracking-wider text-purple-700 mb-4 font-semibold">
-            Tu WhatsApp (operador)
-          </div>
-          <div className="space-y-3">
-            <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-sm">
-              <div className="text-xs text-gray-500 mb-1">🤖 Sincronia propone</div>
-              <div className="text-sm text-gray-800 mb-3">
-                <strong>Ana</strong> pide cambio de talla M → L del pedido #4521.
-              </div>
-              <div className="text-sm text-gray-600 italic mb-3">
-                "Listo Ana, cambio aplicado ✅..."
-              </div>
-              <div className="flex gap-2">
-                <button className="flex-1 py-2 rounded-lg bg-emerald-500 text-white text-xs font-medium">
-                  ✅ Aprobar
-                </button>
-                <button className="flex-1 py-2 rounded-lg bg-gray-100 text-gray-700 text-xs font-medium">
-                  ✏️ Editar
-                </button>
-                <button className="flex-1 py-2 rounded-lg bg-red-50 text-red-600 text-xs font-medium">
-                  ✕ Rechazar
-                </button>
-              </div>
-            </div>
-            <div className="text-center text-xs text-gray-500 mt-2">
-              Click "Aprobar" → mensaje enviado al cliente en 2 segundos
-            </div>
-          </div>
-        </div>
-      </div>
+      <SectionBlock
+        num="03"
+        eyebrow="Acciones en Shopify"
+        title={<>No solo platica — <span className="gradient-text">ejecuta</span></>}
+        desc="Conectas tu Shopify una vez. Sofía cambia tallas, corrige direcciones, consulta tracking, aplica reembolsos. Acciones reales en tu tienda, no copy-paste."
+        bullets={[
+          "Cambio de talla, color o variante en pedidos abiertos",
+          "Corrección de dirección antes de envío",
+          "Consulta de tracking y status en tiempo real",
+        ]}
+        side="right"
+      >
+        <ShopifyMockup />
+      </SectionBlock>
     </section>
+  );
+}
+
+function SectionBlock({
+  num,
+  eyebrow,
+  title,
+  desc,
+  bullets,
+  side,
+  children,
+}: {
+  num: string;
+  eyebrow: string;
+  title: React.ReactNode;
+  desc: string;
+  bullets: string[];
+  side: "left" | "right";
+  children: React.ReactNode;
+}) {
+  const mockupFirst = side === "left";
+  return (
+    <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div className={mockupFirst ? "md:order-2" : ""}>
+        <div className="text-7xl md:text-8xl font-bold gradient-text leading-none mb-2">{num}</div>
+        <div className="text-xs uppercase tracking-widest text-gray-500 font-semibold mb-4">{eyebrow}</div>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5">{title}</h2>
+        <p className="text-lg text-gray-600 mb-6 leading-relaxed">{desc}</p>
+        <ul className="space-y-3">
+          {bullets.map((b) => (
+            <li key={b} className="flex gap-3 items-start">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-accent to-accent2 flex items-center justify-center mt-0.5">
+                <Check className="w-3 h-3 text-white" strokeWidth={3} />
+              </div>
+              <span className="text-gray-700">{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={mockupFirst ? "md:order-1" : ""}>{children}</div>
+    </div>
+  );
+}
+
+function BandejaMockup() {
+  return (
+    <div className="p-5 rounded-3xl bg-emerald-50 border border-emerald-200 shadow-xl">
+      <div className="flex items-center gap-2 mb-4 px-2">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-accent2 flex items-center justify-center text-white text-xs font-bold">A</div>
+        <div>
+          <div className="text-sm font-semibold text-gray-900">Ana López</div>
+          <div className="text-[10px] text-emerald-600">en línea</div>
+        </div>
+      </div>
+      <div className="space-y-2.5">
+        <Bubble side="left">Hola! Necesito cambiar la talla de mi pedido #4521 de M a L 🙏</Bubble>
+        <Bubble side="right" agent>¡Hola Ana! 🙌 Claro, ya vi tu pedido de los tenis blancos. ¿Confirmo el cambio de M a L?</Bubble>
+        <Bubble side="left">Sí porfa</Bubble>
+        <Bubble side="right" agent>Listo ✅ Tu pedido #4521 ahora está en talla L. Te llega el viernes 📦</Bubble>
+        <Bubble side="left">Mil gracias!</Bubble>
+      </div>
+    </div>
+  );
+}
+
+function AprobacionMockup() {
+  return (
+    <div className="p-5 rounded-3xl bg-purple-50 border border-purple-200 shadow-xl">
+      <div className="flex items-center gap-2 mb-4 px-2">
+        <div className="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center text-purple-700 text-xs font-bold">🤖</div>
+        <div>
+          <div className="text-sm font-semibold text-gray-900">Sofía · Sincronia</div>
+          <div className="text-[10px] text-purple-600">Tu agente</div>
+        </div>
+      </div>
+      <div className="space-y-3">
+        <div className="p-4 rounded-2xl bg-white border border-black/[0.08]">
+          <div className="text-xs text-gray-500 mb-2">Propuesta para <strong>Ana López</strong></div>
+          <div className="text-xs text-gray-500 mb-2 italic">Pide: cambio M → L del pedido #4521</div>
+          <div className="p-3 rounded-xl bg-gray-50 text-sm text-gray-800 mb-3">
+            "Listo Ana, cambio aplicado ✅ Tu pedido #4521 ahora está en talla L. Te llega el viernes 📦"
+          </div>
+          <div className="flex gap-2">
+            <button className="flex-1 py-2 rounded-lg bg-emerald-500 text-white text-xs font-medium">✅ Aprobar</button>
+            <button className="flex-1 py-2 rounded-lg bg-gray-100 text-gray-700 text-xs font-medium">✏️ Editar</button>
+            <button className="flex-1 py-2 rounded-lg bg-red-50 text-red-600 text-xs font-medium">✕ Rechazar</button>
+          </div>
+        </div>
+        <div className="text-center text-[11px] text-gray-500">Tap "Aprobar" → enviado en 2 segundos</div>
+      </div>
+    </div>
+  );
+}
+
+function ShopifyMockup() {
+  return (
+    <div className="p-5 rounded-3xl bg-gray-50 border border-gray-200 shadow-xl">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+            <ShoppingBag className="w-4 h-4 text-white" strokeWidth={2} />
+          </div>
+          <div className="text-sm font-semibold text-gray-900">Shopify · Pedido #4521</div>
+        </div>
+        <div className="text-[10px] px-2 py-1 rounded-full bg-amber-100 text-amber-800 font-semibold">EN PREPARACIÓN</div>
+      </div>
+      <div className="space-y-3">
+        <div className="p-3 rounded-xl bg-white border border-black/[0.08] flex items-center gap-3">
+          <Package className="w-5 h-5 text-gray-500" strokeWidth={1.5} />
+          <div className="flex-1">
+            <div className="text-xs text-gray-500">Tenis Pacífico Blanco</div>
+            <div className="text-sm">
+              <span className="line-through text-gray-400">Talla M</span>
+              <span className="ml-2 font-semibold text-emerald-600">→ Talla L</span>
+            </div>
+          </div>
+          <Check className="w-4 h-4 text-emerald-500" strokeWidth={3} />
+        </div>
+        <div className="p-3 rounded-xl bg-white border border-black/[0.08] flex items-center gap-3">
+          <MapPin className="w-5 h-5 text-gray-500" strokeWidth={1.5} />
+          <div className="flex-1 text-xs text-gray-700">Av. Vallarta 4502, Guadalajara</div>
+        </div>
+        <div className="p-3 rounded-xl bg-white border border-black/[0.08] flex items-center gap-3">
+          <Truck className="w-5 h-5 text-gray-500" strokeWidth={1.5} />
+          <div className="flex-1 text-xs text-gray-700">DHL · Entrega vie 3 may</div>
+        </div>
+        <div className="text-[11px] text-center text-gray-500 pt-1">Acción ejecutada por Sofía vía Shopify Admin API</div>
+      </div>
+    </div>
   );
 }
 
