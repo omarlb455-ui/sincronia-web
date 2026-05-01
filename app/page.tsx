@@ -14,7 +14,6 @@ export default function Home() {
       <FAQ />
       <CTA />
       <Footer />
-      <FloatingWhatsApp />
     </main>
   );
 }
